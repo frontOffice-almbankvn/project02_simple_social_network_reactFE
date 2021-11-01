@@ -45,7 +45,8 @@ function WallVisit(props) {
         const data ={
             "search_id": location.state
         }
-        console.log(data)
+        // console.log(data)
+        // console.log(data)
         axios.post("http://localhost:3001/visitposts",data,config).then(
             response => 
             {
