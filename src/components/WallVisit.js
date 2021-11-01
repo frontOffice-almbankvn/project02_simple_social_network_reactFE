@@ -10,7 +10,7 @@ function WallVisit(props) {
     })
     
     const location = useLocation()
-    console.log(location)
+    console.log(location.state)
 
     const config = {
         headers: {
@@ -40,17 +40,21 @@ function WallVisit(props) {
     }
 
     useEffect(()=> {
-        //console.log(location.state)
-        //console.log(props.location.state)
-        // axios.get("http://localhost:3001/posts",config).then(
-        //     response => 
-        //     {
-        //         // console.log(response.data)
-        //         setState({
-        //             posts: response.data
-        //         })
-        //     }
-        // )
+        // console.log(location.state)
+        // console.log(props.location.state)
+        const data ={
+            "search_id": location.state
+        }
+        console.log(data)
+        axios.post("http://localhost:3001/visitposts",data,config).then(
+            response => 
+            {
+                console.log(response.data)
+                setState({
+                    posts: response.data
+                })
+            }
+        )
 
     },[])
 
@@ -62,7 +66,7 @@ function WallVisit(props) {
             <div className='tab-pane fade active show'>
                 It is following's wall
                 {location.visit_id}
-                <Input addPost= {addPost} />
+                {/* <Input addPost= {addPost} /> */}
                 <Posts posts = {state.posts}/>
             </div>
         </div>
