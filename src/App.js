@@ -6,6 +6,7 @@ import React, {useState } from 'react';
 import FollowView from './components/FollowSearch/FollowView';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import WallVisit from './components/WallVisit';
+import WallHome from './components/WallHome';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Switch>
           <Route path="/follows"> <FollowView/></Route>
           <Route path="/visit"> <WallVisit/> </Route>
+          <Route path="/home"> <WallHome/> </Route>
           <Route path="/"> <Wall/></Route>
         </Switch>
       </BrowserRouter>

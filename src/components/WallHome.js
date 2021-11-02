@@ -4,7 +4,7 @@ import Input from './Input'
 import Posts from './Posts'
 import {Link} from 'react-router-dom'
 
-function Wall(props) {
+function WallHome(props) {
     const [state, setState] = useState({
         posts:[]
     })
@@ -35,20 +35,6 @@ function Wall(props) {
         )
     }
 
-    const handle_post = (id, actionToDo) => {
-        console.log(id, actionToDo)
-    }
-
-    const get_related_post = () => {
-        axios.get("http://localhost:3001/relatedposts", config).then(
-            response => {
-                setState({
-                    posts: response.data
-                })
-            }
-        )
-    }
-
     const get_my_posts = () => {
         axios.get("http://localhost:3001/posts",config).then(
             response => 
@@ -60,10 +46,24 @@ function Wall(props) {
         )
     }
 
+    const deletePost = (i) => {
+        let m = state.posts.filter( x => x._id !== i)
+        setState({
+            posts: m
+        })
+    }
+
+    const handle_post = (id, actionToDo) => {
+        console.log(id, actionToDo)
+
+        if (actionToDo === "Delete") {
+            axios.delete(`http://localhost:3001/posts/${id}`, config).then( deletePost(id))
+        }
+    }
 
 
     useEffect(()=> {
-        get_related_post() 
+        get_my_posts()
     },[])
 
     
@@ -72,17 +72,17 @@ function Wall(props) {
         <div className='tab-content'>
             <div>
                 <Link to ="/follows">Search follows</Link>
-                <Link to ="/home">Home</Link>
+                <Link to ="/">Back to hall</Link>
             </div>
             <div className='tab-pane fade active show'>
-                <Input addPost= {addPost} />
-                Public
+                It is my wall
                 {/* Token { sessionStorage.getItem('token')} */}
-                <Posts posts = {state.posts} postType = {0} handle_post = {handle_post}/>
+                <Input addPost= {addPost} />
+                <Posts posts = {state.posts} postType = {1} handlePost = {handle_post}/>
             </div>
         </div>
         
     )
 }
 
-export default Wall
+export default WallHome

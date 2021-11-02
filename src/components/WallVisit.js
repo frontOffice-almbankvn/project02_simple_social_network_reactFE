@@ -20,33 +20,14 @@ function WallVisit(props) {
 
     const p = props
 
-    const addPost = (o) =>{
-        console.log(location.state)
-        // console.log(o)
-        // const data = {
-        //     "description": o.description ,
-        //     "content":{
-        //         "text":o.content
-        //     }
-        // }
-
-        // axios.post("http://localhost:3001/posts",data,config).then(
-        //     response =>{
-        //         setState({
-        //             posts:[response.data, ...state.posts ]
-        //         })
-        //     }
-        // )
-    }
+    // const addPost = (o) =>{
+    //     console.log(location.state)
+    // }
 
     useEffect(()=> {
-        // console.log(location.state)
-        // console.log(props.location.state)
         const data ={
             "search_id": location.state
         }
-        // console.log(data)
-        // console.log(data)
         axios.post("http://localhost:3001/visitposts",data,config).then(
             response => 
             {
