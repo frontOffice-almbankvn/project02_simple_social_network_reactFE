@@ -8,8 +8,8 @@ function Posts(props){
     // console.log(view_posts)
     console.log(props)
     return (
-        <div>
-            các loại posts
+        <div className="col-md-8">
+            
             {
                 view_posts.map( p => 
                      (

@@ -18,9 +18,10 @@ function InputSearch(props){
 
     return (
         <div>
-            <form onSubmit={searchFollows}>
-                <input type = "text" placeholder="Nhập vào email để tìm kiếm" className="search-text" value = {searchWord} onChange={onSearchWordChange}></input>
-                <input type="submit" value="Tìm kiếm" className="search-submit" ></input>
+            <form onSubmit={searchFollows} className="d-flex" >
+         
+                <input type = "text" placeholder="Nhập vào email để tìm kiếm" className="form-control me-2" value = {searchWord} onChange={onSearchWordChange}></input>
+                <input type="submit" value="Tìm kiếm" className="btn btn-primary" ></input>
             </form>
         </div>
     )   

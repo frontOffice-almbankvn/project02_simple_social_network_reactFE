@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-function Input(props){
+function Input(props) {
     const [postContent, setPosContnent] = useState()
     const [postDescription, setPosDescription] = useState()
 
@@ -14,7 +14,7 @@ function Input(props){
 
     const upPost = (e) => {
         //e.preventDefaut()
-        if (!postContent || postContent === "" || !postDescription || postDescription==="" ){
+        if (!postContent || postContent === "" || !postDescription || postDescription === "") {
             alert("Hãy nhập đầy đủ tiêu đề và nội dung của post")
         }
         else {
@@ -24,24 +24,31 @@ function Input(props){
             })
             setPosContnent("")
             setPosDescription("")
-         }
-        
+        }
+
 
     }
 
     return (
-        <div className= "post-input">
-            <input placeholder="Tiêu đề" type="text" value = {postDescription} onChange={onDescriptionChange} >
-                
-            </input>
-            <input placeholder="Nhập vào đây nhưng gì bạn muốn chia sẻ" value = {postContent} onChange={onInputChange} type="text">
-            </input>
+        <div className="col md-5">
 
-            <div className="btn btn primary" onClick={upPost}>
+            <div class="form-group">
+
+                <input placeholder="Tiêu đề" type="text" value={postDescription} onChange={onDescriptionChange} >
+
+                </input>
+            </div>
+
+            <div class="form-group mt-2">
+                <input placeholder="Hãy viết vào đây" value={postContent} onChange={onInputChange} type="text">
+                </input>
+            </div>
+            <div className="btn btn-primary mb-3 mt-3" onClick={upPost}>
                 Post
             </div>
-            
+            <hr></hr>
         </div>
+        
     )
 }
 

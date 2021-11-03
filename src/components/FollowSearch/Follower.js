@@ -10,16 +10,16 @@ function Follower(props){
     }
     
     return (
-        <div>
-            <div><Link to=
+        <div className="row mt-3">
+            <div className="col-auto"><Link className="nav-link" to=
             {{
                 pathname: "/visit",
                 state: p.fl._id // your data array of objects
               }}
             >
                 {p.fl.email} </Link></div>
-            {/* <div>{p.fl.followStatus}</div> */}
-            <button onClick={clickFollow}>
+
+            <button onClick={clickFollow} className="col-auto btn btn-primary">
                 {p.fl.followStatus}</button>
         </div>
         

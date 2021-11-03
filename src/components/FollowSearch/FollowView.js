@@ -64,10 +64,21 @@ function FollowView(props) {
     }
 
     return (
-        <div>
+        <div className="container">
+             
+            <div className='row'>
+                <header className='d-flex justify-content-center py-3'>
+                    <ul className='nav nav-pills'>
+                        <li className='nav-item'><Link to ="/home" className='nav-link'>Home</Link></li>
+                        <li className='nav-item'><Link to="/" className='nav-link'>Hall</Link></li>
+                    </ul>   
+                </header>
+                
+            </div>
+
             <InputSearch searchTargets={searchTargets}></InputSearch>
             <Followers fls={state.targets} handleFollow={handleFollow}></Followers>
-            <div><Link to="/">Back to home</Link> </div>
+            
         </div>
     )
 }

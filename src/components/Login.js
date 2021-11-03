@@ -12,31 +12,39 @@ function Login(props) {
     const submitLogin = (e) => {
         e.preventDefault();
         // console.log(email, password)
-        axios.post("http://localhost:3001/users/login",{
+        axios.post("http://localhost:3001/users/login", {
             email: email,
             password: password
         }).then((response) => {
             // console.log(response.data.token)
             addToken(response.data.token)
-            
-        } )
+
+        })
     }
-    
+
     return (
-        <div className="login-wrapper">
-            <form onSubmit={submitLogin}>
-                <label>
-                    <p>Email</p>
-                    <input type="text" onChange={e => setEmail(e.target.value)} />
-                </label>
-                <label>
-                    <p>Password</p>
-                    <input type="password" on onChange={e => setPassword(e.target.value)} />
-                </label>
-                <div>
-                    <button type="submit">Login</button>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-4 col-md-offset-4">
+                    <form onSubmit={submitLogin}>
+                        <div class="form-group">
+                            <label>
+                                <p>Email</p>
+                                <input className="form-control" type="text" onChange={e => setEmail(e.target.value)} />
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <p>Password</p>
+                                <input className="form-control" type="password" on onChange={e => setPassword(e.target.value)} />
+                            </label>
+                        </div>
+
+                        <button type="submit" className="btn btn-primary mt-4">Login</button>
+
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     )
 }

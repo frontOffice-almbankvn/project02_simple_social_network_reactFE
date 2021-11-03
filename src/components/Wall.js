@@ -69,16 +69,31 @@ function Wall(props) {
     
 
     return (
-        <div className='tab-content'>
-            <div>
-                <Link to ="/follows">Search follows</Link>
-                <Link to ="/home">Home</Link>
+        <div className='container'>
+            <div className='row'>
+                <header className='d-flex justify-content-center py-3'>
+                    <ul className='nav nav-pills'>
+                        <li className='nav-item'><Link to ="/follows" className='nav-link'>Search Follows</Link></li>
+                        <li className='nav-item'><Link to ="/home" className='nav-link'>Home</Link></li>
+                    </ul>   
+                </header>
+                
             </div>
-            <div className='tab-pane fade active show'>
-                <Input addPost= {addPost} />
-                Public
+            <div className='row g-5'>
+                {/* <Input addPost= {addPost} /> */}
+                
                 {/* Token { sessionStorage.getItem('token')} */}
                 <Posts posts = {state.posts} postType = {0} handle_post = {handle_post}/>
+                <div class="col-md-4">
+                    <div className='position-sticky'>
+                        <div className='p-4 mb-3 bg-light rounded'>
+                            <h4 class="fst-italic">About</h4>
+                            <p className='mb-0'>
+                                Project 02: thực hiện bởi Trương Nguyễn Duy Phương - MSSV: 20209040 - Tháng 11 năm 2021
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         

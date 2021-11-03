@@ -11,19 +11,29 @@ function Post(props) {
     console.log(post)
     if (postType == 0) {
         return (
-            <div>
-                <div>{post.description}</div>
-                <div>{post.content.text}</div>
-            </div>
+            <article className="blog-post">
+                
+                <h2 className="blog-post-title">{post.description}</h2>
+                <p className="blog-post-meta">Created at {post.createdAt} by {post.email}</p>
+                <p>{post.content.text}</p>
+                <hr></hr>
+            </article>
+
+            
         )
     }
     else {
         return (
-            <div>
-                <div>{post.description}</div>
-                <div>{post.content.text}</div>
-                <button onClick={deletePost}><div>Delete</div></button>
-            </div>
+            <article className="blog-post">
+                
+                <h2 className="blog-post-title">{post.description}</h2>
+                <p className="blog-post-meta">Created at {post.createdAt} </p>
+                <p>{post.content.text}</p>
+                <button onClick={deletePost} className="btn btn-primary"><div>Delete</div></button>
+                <hr></hr>
+            </article>
+
+
         )
     }
     

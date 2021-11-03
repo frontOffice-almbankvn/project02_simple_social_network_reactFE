@@ -5,8 +5,8 @@ function Followers(props){
     const p = props
     // console.log(p)
     return(
-        <div>
-            followers
+        <div className="col-md-8">
+            
             
             {
                 p.fls.map( x => (
