@@ -17,7 +17,9 @@ function WallVisit(props) {
                 Authorization: `Bearer ${sessionStorage.getItem('token')}`
         }
     }
-
+    const handle_post = (id, actionToDo) => {
+        console.log(id, actionToDo)
+    }
     const p = props
 
     // const addPost = (o) =>{
@@ -53,7 +55,7 @@ function WallVisit(props) {
 
             <div className='row g-5'>
                 {/* <Input addPost= {addPost} /> */}
-                <Posts posts = {state.posts}/>
+                <Posts posts = {state.posts} postType = {0} handle_post = {handle_post} />
                 <div class="col-md-4">
                     <div className='position-sticky'>
                         <div className='p-4 mb-3 bg-light rounded'>
